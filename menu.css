@@ -68,10 +68,14 @@ header {
     transform: translate(-20px, 12px);
 }
 
+/* the below property spins the 3 lines quite a few times before transforming to an X */
+
 :is(header:hover, header:focus-within) .menu-icon {
     background-color: transparent;
     transform: rotate(720deg);
 }
+
+/* the below 2 styles makes the 3 lines appear as an X when you hover over the header. This is done because when you hover over the header, the second line dissapears as that is the unordered list. */
 
 :is(header:hover, header:focus-within) .menu-icon::before {
     transform: translateX(-20px) rotate(45deg);
@@ -92,6 +96,8 @@ nav {
     animation: showMenu 0.5s ease-in-out forwards;
 }
 
+/* the animation code for dropping the menu with a bounce at the end */
+
 @keyframes showMenu {
     0% {
         transform: scaleY(0);
@@ -100,9 +106,9 @@ nav {
     80% {
         transform: scaleY(1.2);
     }
-
+/* the value for the below style is 1 so that the menu still appears without getting erased or enlarging or shrinking.  */
     100% {
-        transform: scaleY(1);
+        transform: scaleY(1); 
     }
 }
 
